@@ -17,21 +17,21 @@ import { WizardStepComponent } from "app/wizard/wizard-step.component";
   selector: 'wizard',
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('stepStatus', [
-      state('active', style({ opacity: 1 })),
-      state('void', style({ opacity: 0, display: 'none' })),
-      transition('* => void', [
-        style({height: '*'}),
-        animate(250, style({height: 0}))
-      ]),
-      transition('void => *', [
-        style({ transform: 'translateX(-100%)' }),
-        animate(100)
-      ]),
-    ])
-  ]
+  //changeDetection: ChangeDetectionStrategy.OnPush,
+  // animations: [
+  //   trigger('stepStatus', [
+  //     state('active', style({ opacity: 1 })),
+  //     state('void', style({ opacity: 0, display: 'none' })),
+  //     transition('* => void', [
+  //       style({height: '*'}),
+  //       animate(250, style({height: 0}))
+  //     ]),
+  //     transition('void => *', [
+  //       style({ transform: 'translateX(-100%)' }),
+  //       animate(100)
+  //     ]),
+  //   ])
+  // ]
 })
 export class WizardComponent implements OnInit {
   @ContentChildren(WizardStepComponent) steps: QueryList<WizardStepComponent>;
@@ -48,13 +48,11 @@ export class WizardComponent implements OnInit {
 
   nextStep() {
     this.steps.toArray()[this.currentStep].active = false;
-    this.steps.toArray()[this.currentStep].status = 'void';
     this.steps.toArray()[++this.currentStep].active = true;
   }
 
   backStep() {
     this.steps.toArray()[this.currentStep].active = false;
-    this.steps.toArray()[this.currentStep - 1].status = 'active';
     this.steps.toArray()[--this.currentStep].active = true;
   }
 

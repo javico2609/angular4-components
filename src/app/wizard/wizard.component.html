@@ -1,7 +1,7 @@
 <div class="wrapper">
   <header class="header">
     <div class="ui mini steps">
-      <div class="step" *ngFor="let step of steps" [ngClass]="{ 'active': step.active, 'disabled': !step.active }" [@stepStatus]="step.status">  
+      <div class="step" *ngFor="let step of steps" [ngClass]="{ 'active': step.active, 'disabled': !step.active }" >  
         <i class="{{step.icon}} icon" *ngIf="step.icon"></i>
         <div class="content">
           <div class="title">{{ step.title }}</div>

@@ -1,13 +1,15 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WizardComponent } from './wizard.component';
-import { WizardStepComponent } from './wizard-step.component';
+import { WizardStepComponent } from './wizard-step/wizard-step.component';
+import { WizardNavbarComponent } from './wizard-navbar/wizard-navbar.component';
 
 @NgModule({
   imports: [CommonModule],
   declarations: [
     WizardComponent,
-    WizardStepComponent
+    WizardStepComponent,
+    WizardNavbarComponent
   ],
   exports: [WizardComponent, WizardStepComponent]
 })

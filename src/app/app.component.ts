@@ -13,12 +13,20 @@ export class AppComponent {
   }
   canMoveNextCondition: boolean = true;
 
-  onNextSecondAuth(){
+  onNextSecondAuth() {
     console.log('onNextSecondAuth !!!');
   }
 
-  onNextStep(){
-    console.log('onNextStep !!!');
+  onBackStep() {
+    console.log('onBackStep Wizard !!!');
+  }
+
+  onNextStep() {
+    console.log('onNextStep Wizard !!!');
+  }
+
+  onBackExecute() {
+    console.log('onBackExecute !!!');
   }
 
   canMoveNext() {

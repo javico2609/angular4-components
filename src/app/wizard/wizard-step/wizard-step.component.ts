@@ -28,6 +28,7 @@ export class WizardStepComponent implements OnInit {
   _canMoveBack: boolean = true;
 
   @Output() onNext: EventEmitter<any> = new EventEmitter();
+  @Output() onBack: EventEmitter<any> = new EventEmitter();
 
   @Input()
   set canMoveNext(canMoveNext: boolean) {

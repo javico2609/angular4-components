@@ -11,7 +11,7 @@ import {
   transition
 } from '@angular/animations';
 
-import { WizardStepComponent } from "app/wizard/wizard-step.component";
+import { WizardStepComponent } from "./wizard-step/wizard-step.component";
 
 const MOVE_NEXT: number = 1;
 const MOVE_BACK: number = -1;
@@ -63,20 +63,21 @@ export class WizardComponent implements OnInit {
   }
 
   nextStep() {
+    this._currentStep.onNext.emit();
+
     if (this._currentStep._canMoveNext) {
       this.move(MOVE_NEXT);
+      this.onNextStep.emit();
     }
-
-    this.onNextStep.emit();
-    this._currentStep.onNext.emit();
   }
 
   backStep() {
+    this._currentStep.onBack.emit();
+
     if (this._currentStep._canMoveBack) {
       this.move(MOVE_BACK);
+      this.onBackStep.emit();
     }
-
-    this.onBackStep.emit();
   }
 
   private move(direction: number = MOVE_NEXT) {

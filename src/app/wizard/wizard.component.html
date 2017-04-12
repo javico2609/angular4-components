@@ -1,7 +1,7 @@
 <div class="wrapper">
-  <header class="header">
+  <header class="header" *ngIf="_showNavbar">
     <div class="ui mini steps">
-      <div class="step" *ngFor="let step of steps" [ngClass]="{ 'active': step.active, 'disabled': !step.active }" >  
+      <div class="step" *ngFor="let step of steps" [ngClass]="{ 'active': step.active, 'disabled': !step.active }">
         <i class="{{step.icon}} icon" *ngIf="step.icon"></i>
         <div class="content">
           <div class="title">{{ step.title }}</div>
@@ -11,9 +11,9 @@
     </div>
   </header>
   <article class="main">
-   <ng-content></ng-content>
+    <ng-content></ng-content>
   </article>
-  <footer class="footer">
+  <footer class="footer" *ngIf="!_showMiniNavigation">
     <button class="ui labeled icon button" [disabled]="!hasPrevStep" (click)="backStep()">
       <i class="left arrow icon"></i>
       Back
@@ -22,9 +22,20 @@
       <i class="refresh icon"></i>
       Refresh
     </button>
-    <button class="ui right labeled icon button" (click)="nextStep()" [disabled]="!hasNextStep">
+    <button [ngClass]="{ 'red': !_currentStep._canMoveNext }" class="ui right labeled icon button" (click)="nextStep()" [disabled]="!hasNextStep">
       <i class="right arrow icon"></i>
       Next
+    </button>
+  </footer>
+  <footer class="footer" *ngIf="_showMiniNavigation">
+    <button class="ui  icon button" [disabled]="!hasPrevStep" (click)="backStep()">
+      <i class="left arrow icon"></i>
+    </button>
+    <button class="ui  icon button">
+      <i class="refresh icon"></i>
+    </button>
+    <button [ngClass]="{ 'red': !_currentStep._canMoveNext }" class="ui right icon button" (click)="nextStep()" [disabled]="!hasNextStep">
+      <i class="right arrow icon"></i>
     </button>
   </footer>
 </div>

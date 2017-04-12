@@ -1,6 +1,6 @@
 import {
   Component, OnInit, ChangeDetectionStrategy,
-  ContentChildren, QueryList,
+  ContentChildren, QueryList, Input, EventEmitter, Output
 } from '@angular/core';
 
 import {
@@ -13,55 +13,84 @@ import {
 
 import { WizardStepComponent } from "app/wizard/wizard-step.component";
 
+const MOVE_NEXT: number = 1;
+const MOVE_BACK: number = -1;
+const FIRST_MOVE: number = 0;
+
 @Component({
   selector: 'wizard',
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
-  // animations: [
-  //   trigger('stepStatus', [
-  //     state('active', style({ opacity: 1 })),
-  //     state('void', style({ opacity: 0, display: 'none' })),
-  //     transition('* => void', [
-  //       style({height: '*'}),
-  //       animate(250, style({height: 0}))
-  //     ]),
-  //     transition('void => *', [
-  //       style({ transform: 'translateX(-100%)' }),
-  //       animate(100)
-  //     ]),
-  //   ])
-  // ]
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WizardComponent implements OnInit {
+  private _currentStepIndex: number = 0;
+  private _currentStep: WizardStepComponent;
+  private _showNavbar = true;
+  private _showMiniNavigation = false;
+  private _steps: WizardStepComponent[];
+  private _totalSteps: number = 0;
+
   @ContentChildren(WizardStepComponent) steps: QueryList<WizardStepComponent>;
-  private currentStep: number = 0;
+
+  @Input()
+  set showNavbar(showNavbar: boolean) {
+    this._showNavbar = showNavbar;
+  }
+  get showNavbar() {
+    return this._showNavbar;
+  }
+
+  @Input()
+  set showMiniNavigation(showMiniNavigation: boolean) {
+    this._showMiniNavigation = showMiniNavigation;
+  }
+  get showMiniNavigation() {
+    return this._showMiniNavigation;
+  }
+
+  @Output() onNextStep: EventEmitter<any> = new EventEmitter();
+  @Output() onBackStep: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   ngAfterContentInit(): void {
-    this.steps.toArray()[this.currentStep].active = true;
+    this._steps = this.steps.toArray();
+    this._totalSteps = this._steps.length;
+    this.move(FIRST_MOVE);
   }
 
   nextStep() {
-    this.steps.toArray()[this.currentStep].active = false;
-    this.steps.toArray()[++this.currentStep].active = true;
+    if (this._currentStep._canMoveNext) {
+      this.move(MOVE_NEXT);
+    }
+
+    this.onNextStep.emit();
+    this._currentStep.onNext.emit();
   }
 
   backStep() {
-    this.steps.toArray()[this.currentStep].active = false;
-    this.steps.toArray()[--this.currentStep].active = true;
+    if (this._currentStep._canMoveBack) {
+      this.move(MOVE_BACK);
+    }
+
+    this.onBackStep.emit();
+  }
+
+  private move(direction: number = MOVE_NEXT) {
+    this._steps[this._currentStepIndex].active = false;
+    this._currentStepIndex = this._currentStepIndex + direction;
+    this._currentStep = this._steps[this._currentStepIndex];
+    this._currentStep.active = true;
   }
 
   private get hasNextStep(): boolean {
-    return this.currentStep < this.steps.length - 1;
+    return this._currentStepIndex < this._totalSteps - 1;
   }
 
   private get hasPrevStep(): boolean {
-    return this.currentStep > 0;
+    return this._currentStepIndex > 0;
   }
-
 }

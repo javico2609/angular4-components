@@ -1,4 +1,4 @@
-<wizard>
+<wizard (onNextStep)="onNextStep($event)">
     <wizard-step title="Initial" description="Enter transfer information" icon="wpforms">
         <div class="ui form">
             <div class="fields">
@@ -42,7 +42,7 @@
     <wizard-step title="Confirm" description="Verify transfer information" icon="payment">
         <p>Verify transfer information</p>
     </wizard-step>
-    <wizard-step title="Second Auth" description="Second Auth" icon="key">
+    <wizard-step title="Second Auth" description="Second Auth" icon="key" [canMoveNext]="canMoveNextCondition" (onNext)="onNextSecondAuth($event)">
         <p>Second Auth step</p>
     </wizard-step>
     <wizard-step title="Result" description="Execute transfer" icon="info">

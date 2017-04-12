@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import {
   trigger,
   state,
@@ -17,13 +17,33 @@ import {
       state('0', style({ opacity: 0, display: 'none' })),
       transition('0 => 1', animate('0.5s'))
     ])
-  ],
+  ]
 })
 export class WizardStepComponent implements OnInit {
   active: boolean = false;
   private _title: string;
   private _description: string;
   private _icon: string;
+  _canMoveNext: boolean = true;
+  _canMoveBack: boolean = true;
+
+  @Output() onNext: EventEmitter<any> = new EventEmitter();
+
+  @Input()
+  set canMoveNext(canMoveNext: boolean) {
+    this._canMoveNext = canMoveNext;
+  }
+  get canMoveNext() {
+    return this._canMoveNext;
+  }
+
+  @Input()
+  set canMoveBack(canMoveBack: boolean) {
+    this._canMoveNext = canMoveBack;
+  }
+  get canMoveBack() {
+    return this._canMoveBack;
+  }
 
   @Input()
   set title(title: string) {

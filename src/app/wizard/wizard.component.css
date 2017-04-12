@@ -30,6 +30,14 @@
   flex: 1 100%;
 }
 
+.description {
+  display: none;
+}
+
+.title {
+  display: none;
+}
+
 @media all and (min-width: 100%) {
   .main    { flex: 3 0px; }
   .main    { order: 1; }
@@ -37,21 +45,17 @@
 }
 
 @media screen and (min-width: 480px) {
-   .description {
-      display: block;
-    }
-
-    .title {
-      display: block;
+   .description, .title {
+       display: block;
+      margin: 0em 1rem 0em 0em;
+      text-align: center;
     }
 }
 
-.description {
-  display: none;
-}
-
-.title {
-  display: none;
+@media screen and (min-width: 960px) {
+   .description, .title {
+      text-align: left;
+    }
 }
 
 .ui.steps {
@@ -313,51 +317,6 @@
   background: #FFFFFF;
 }
 
-@media only screen and (max-width: 991px) {
-  .ui[class*="tablet stackable"].steps {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    overflow: visible;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-
-  .ui[class*="tablet stackable"].steps .step {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    border-radius: 0em;
-    padding: 1.14285714em 2em;
-  }
-  .ui[class*="tablet stackable"].steps .step:first-child {
-    padding: 1.14285714em 2em;
-    border-radius: 0.28571429rem 0.28571429rem 0em 0em;
-  }
-  .ui[class*="tablet stackable"].steps .step:last-child {
-    border-radius: 0em 0em 0.28571429rem 0.28571429rem;
-  }
-
-  .ui[class*="tablet stackable"].steps .step:after {
-    display: none !important;
-  }
-  
-  .ui[class*="tablet stackable"].steps .step .content {
-    text-align: center;
-  }
-  
-  .ui[class*="tablet stackable"].steps .step > .icon,
-  .ui[class*="tablet stackable"].ordered.steps .step:before {
-    margin: 0em 0em 1rem 0em;
-  }
-}
-
 .ui.fluid.steps {
   display: -webkit-box;
   display: -webkit-flex;
@@ -481,22 +440,6 @@
 }
 
 
-
-/*!
- * # Semantic UI 2.2.10 - Button
- * http://github.com/semantic-org/semantic-ui/
- *
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- */
-
-
-/*******************************
-            Button
-*******************************/
-
 .ui.button {
   cursor: pointer;
   display: inline-block;
@@ -594,81 +537,6 @@
   background-image: none;
 }
 
-/*--------------
-    Loading
----------------*/
-
-
-/* Specificity hack */
-.ui.loading.loading.loading.loading.loading.loading.button {
-  position: relative;
-  cursor: default;
-  text-shadow: none !important;
-  color: transparent !important;
-  opacity: 1;
-  pointer-events: auto;
-  -webkit-transition: all 0s linear, opacity 0.1s ease;
-  transition: all 0s linear, opacity 0.1s ease;
-}
-.ui.loading.button:before {
-  position: absolute;
-  content: '';
-  top: 50%;
-  left: 50%;
-  margin: -0.64285714em 0em 0em -0.64285714em;
-  width: 1.28571429em;
-  height: 1.28571429em;
-  border-radius: 500rem;
-  border: 0.2em solid rgba(0, 0, 0, 0.15);
-}
-.ui.loading.button:after {
-  position: absolute;
-  content: '';
-  top: 50%;
-  left: 50%;
-  margin: -0.64285714em 0em 0em -0.64285714em;
-  width: 1.28571429em;
-  height: 1.28571429em;
-  -webkit-animation: button-spin 0.6s linear;
-          animation: button-spin 0.6s linear;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  border-radius: 500rem;
-  border-color: #FFFFFF transparent transparent;
-  border-style: solid;
-  border-width: 0.2em;
-  box-shadow: 0px 0px 0px 1px transparent;
-}
-.ui.labeled.icon.loading.button .icon {
-  background-color: transparent;
-  box-shadow: none;
-}
-@-webkit-keyframes button-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-@keyframes button-spin {
-  from {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-.ui.basic.loading.button:not(.inverted):before {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-.ui.basic.loading.button:not(.inverted):after {
-  border-top-color: #767676;
-}
 
 /*-------------------
       Disabled
@@ -696,211 +564,6 @@
              Types
 *******************************/
 
-
-/*-------------------
-       Animated
---------------------*/
-
-.ui.animated.button {
-  position: relative;
-  overflow: hidden;
-  padding-right: 0em !important;
-  vertical-align: middle;
-  z-index: 1;
-}
-.ui.animated.button .content {
-  will-change: transform, opacity;
-}
-.ui.animated.button .visible.content {
-  position: relative;
-  margin-right: 1.5em;
-}
-.ui.animated.button .hidden.content {
-  position: absolute;
-  width: 100%;
-}
-
-/* Horizontal */
-.ui.animated.button .visible.content,
-.ui.animated.button .hidden.content {
-  -webkit-transition: right 0.3s ease 0s;
-  transition: right 0.3s ease 0s;
-}
-.ui.animated.button .visible.content {
-  left: auto;
-  right: 0%;
-}
-.ui.animated.button .hidden.content {
-  top: 50%;
-  left: auto;
-  right: -100%;
-  margin-top: -0.5em;
-}
-.ui.animated.button:focus .visible.content,
-.ui.animated.button:hover .visible.content {
-  left: auto;
-  right: 200%;
-}
-.ui.animated.button:focus .hidden.content,
-.ui.animated.button:hover .hidden.content {
-  left: auto;
-  right: 0%;
-}
-
-/* Vertical */
-.ui.vertical.animated.button .visible.content,
-.ui.vertical.animated.button .hidden.content {
-  -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
-  transition: top 0.3s ease, -webkit-transform 0.3s ease;
-  transition: top 0.3s ease, transform 0.3s ease;
-  transition: top 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
-}
-.ui.vertical.animated.button .visible.content {
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  right: auto;
-}
-.ui.vertical.animated.button .hidden.content {
-  top: -50%;
-  left: 0%;
-  right: auto;
-}
-.ui.vertical.animated.button:focus .visible.content,
-.ui.vertical.animated.button:hover .visible.content {
-  -webkit-transform: translateY(200%);
-          transform: translateY(200%);
-  right: auto;
-}
-.ui.vertical.animated.button:focus .hidden.content,
-.ui.vertical.animated.button:hover .hidden.content {
-  top: 50%;
-  right: auto;
-}
-
-/* Fade */
-.ui.fade.animated.button .visible.content,
-.ui.fade.animated.button .hidden.content {
-  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
-  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  transition: opacity 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
-}
-.ui.fade.animated.button .visible.content {
-  left: auto;
-  right: auto;
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.ui.fade.animated.button .hidden.content {
-  opacity: 0;
-  left: 0%;
-  right: auto;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-.ui.fade.animated.button:focus .visible.content,
-.ui.fade.animated.button:hover .visible.content {
-  left: auto;
-  right: auto;
-  opacity: 0;
-  -webkit-transform: scale(0.75);
-          transform: scale(0.75);
-}
-.ui.fade.animated.button:focus .hidden.content,
-.ui.fade.animated.button:hover .hidden.content {
-  left: 0%;
-  right: auto;
-  opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-/*-------------------
-       Inverted
---------------------*/
-
-.ui.inverted.button {
-  box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
-  background: transparent none;
-  color: #FFFFFF;
-  text-shadow: none !important;
-}
-
-/* Group */
-.ui.inverted.buttons .button {
-  margin: 0px 0px 0px -2px;
-}
-.ui.inverted.buttons .button:first-child {
-  margin-left: 0em;
-}
-.ui.inverted.vertical.buttons .button {
-  margin: 0px 0px -2px 0px;
-}
-.ui.inverted.vertical.buttons .button:first-child {
-  margin-top: 0em;
-}
-
-/* States */
-
-/* Hover */
-.ui.inverted.button:hover {
-  background: #FFFFFF;
-  box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Active / Focus */
-.ui.inverted.button:focus,
-.ui.inverted.button.active {
-  background: #FFFFFF;
-  box-shadow: 0px 0px 0px 2px #FFFFFF inset !important;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Active Focus */
-.ui.inverted.button.active:focus {
-  background: #DCDDDE;
-  box-shadow: 0px 0px 0px 2px #DCDDDE inset !important;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/*-------------------
-    Labeled Button
---------------------*/
-
-.ui.labeled.button:not(.icon) {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  background: none !important;
-  padding: 0px !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-.ui.labeled.button > .button {
-  margin: 0px;
-}
-.ui.labeled.button > .label {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0px 0px 0px -1px !important;
-  padding: '';
-  font-size: 1em;
-  border-color: rgba(34, 36, 38, 0.15);
-}
 
 /* Tag */
 .ui.labeled.button > .tag.label:before {

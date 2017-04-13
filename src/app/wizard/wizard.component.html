@@ -1,6 +1,6 @@
 <div class="wrapper">
 
-  <wizard-navbar *ngIf="_showNavbar" [steps]="_steps"></wizard-navbar>
+  <wizard-navbar *ngIf="_showNavbar" [steps]="_steps" [currentStepIndex]="_currentStepIndex"></wizard-navbar>
 
   <article class="main">
     <ng-content></ng-content>

@@ -1,4 +1,4 @@
-  <header class="header">
+  <!--<header class="header">
     <div class="ui mini steps">
       <div class="step" *ngFor="let step of steps" [ngClass]="{ 'active': step.active, 'disabled': !step.active }">
         <i class="{{step.icon}} icon" *ngIf="step.icon"></i>
@@ -8,4 +8,17 @@
         </div>
       </div>
     </div>
-  </header>
+  </header>-->
+
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="list-inline text-center step-indicator">
+                <li *ngFor="let step of steps; let pos = index;" [ngClass]="{ 'active': step.active, 'incomplete': pos > _currentStepIndex, 'complete': pos < _currentStepIndex }">
+                    <div *ngIf="step.active || pos > _currentStepIndex" class="step">{{ pos + 1 }}</div>
+                    <div *ngIf="pos < _currentStepIndex" class="step" class="step"><span class="checkmark"></span></div>
+                    <div class="caption hidden-xss">{{ step.title }}</div>
+                </li>
+            </ol>
+        </div>
+    </div>

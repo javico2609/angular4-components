@@ -8,17 +8,8 @@ import { WizardStepComponent } from "../wizard-step/wizard-step.component";
 })
 export class WizardNavbarComponent implements OnInit {
 
-  private _showNavbar = true;
   private _steps: WizardStepComponent[];
   
-  @Input()
-  set showNavbar(showNavbar: boolean) {
-    this._showNavbar = showNavbar;
-  }
-  get showNavbar() {
-    return this._showNavbar;
-  }
-
   @Input()
   set steps(steps: WizardStepComponent[]) {
     this._steps = steps;

@@ -1,0 +1,571 @@
+
+.ui.button {
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: none;
+  border: none;
+  vertical-align: baseline;
+  background: #E0E1E2 none;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  margin: 0em 0.25em 0em 0em;
+  padding: 0.78571429em 1.5em 0.78571429em;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: bold;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.28571429rem;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  will-change: '';
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.ui.red.buttons .button,
+.ui.red.button {
+  background-color: #DB2828;
+  color: #FFFFFF;
+  text-shadow: none;
+  background-image: none;
+}
+.ui.red.button {
+  box-shadow: 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.red.buttons .button:hover,
+.ui.red.button:hover {
+  background-color: #d01919;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+.ui.red.buttons .button:focus,
+.ui.red.button:focus {
+  background-color: #ca1010;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+.ui.red.buttons .button:active,
+.ui.red.button:active {
+  background-color: #b21e1e;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+.ui.red.buttons .active.button,
+.ui.red.buttons .active.button:active,
+.ui.red.active.button,
+.ui.red.button .active.button:active {
+  background-color: #d41515;
+  color: #FFFFFF;
+  text-shadow: none;
+}
+
+/*******************************
+            States
+*******************************/
+
+
+/*--------------
+      Hover
+---------------*/
+
+.ui.button:hover {
+  background-color: #CACBCD;
+  background-image: none;
+  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
+  color: rgba(0, 0, 0, 0.8);
+}
+.ui.button:hover .icon {
+  opacity: 0.85;
+}
+
+/*--------------
+      Focus
+---------------*/
+
+.ui.button:focus {
+  background-color: #CACBCD;
+  color: rgba(0, 0, 0, 0.8);
+  background-image: '' !important;
+  box-shadow: '' !important;
+}
+.ui.button:focus .icon {
+  opacity: 0.85;
+}
+
+/*--------------
+      Down
+---------------*/
+
+.ui.button:active,
+.ui.active.button:active {
+  background-color: #BABBBC;
+  background-image: '';
+  color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 0px 1px transparent inset, none;
+}
+
+/*--------------
+     Active
+---------------*/
+
+.ui.active.button {
+  background-color: #C0C1C2;
+  background-image: none;
+  box-shadow: 0px 0px 0px 1px transparent inset;
+  color: rgba(0, 0, 0, 0.95);
+}
+.ui.active.button:hover {
+  background-color: #C0C1C2;
+  background-image: none;
+  color: rgba(0, 0, 0, 0.95);
+}
+.ui.active.button:active {
+  background-color: #C0C1C2;
+  background-image: none;
+}
+
+
+/*-------------------
+      Disabled
+--------------------*/
+
+.ui.buttons .disabled.button,
+.ui.disabled.button,
+.ui.button:disabled,
+.ui.disabled.button:hover,
+.ui.disabled.active.button {
+  cursor: default;
+  opacity: 0.45 !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+}
+
+/* Basic Group With Disabled */
+.ui.basic.buttons .ui.disabled.button {
+  border-color: rgba(34, 36, 38, 0.5);
+}
+
+
+/*******************************
+             Types
+*******************************/
+
+
+/* Tag */
+.ui.labeled.button > .tag.label:before {
+  width: 1.85em;
+  height: 1.85em;
+}
+
+/* Right */
+.ui.labeled.button:not([class*="left labeled"]) > .button {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.ui.labeled.button:not([class*="left labeled"]) > .label {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+/* Left Side */
+.ui[class*="left labeled"].button > .button {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.ui[class*="left labeled"].button > .label {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+
+
+/*--------------
+     Icon
+---------------*/
+
+.ui.button > .icon:not(.button) {
+  height: 0.85714286em;
+  opacity: 0.8;
+  margin: 0em 0.42857143em 0em -0.21428571em;
+  -webkit-transition: opacity 0.1s ease;
+  transition: opacity 0.1s ease;
+  vertical-align: '';
+  color: '';
+}
+.ui.button:not(.icon) > .icon:not(.button):not(.dropdown) {
+  margin: 0em 0.42857143em 0em -0.21428571em;
+}
+.ui.button:not(.icon) > .right.icon:not(.button):not(.dropdown) {
+  margin: 0em -0.21428571em 0em 0.42857143em;
+}
+
+/*-------------------
+        Sizes
+--------------------*/
+
+.ui.mini.buttons .button,
+.ui.mini.buttons .or,
+.ui.mini.button {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.buttons .button,
+.ui.tiny.buttons .or,
+.ui.tiny.button {
+  font-size: 0.85714286rem;
+}
+.ui.small.buttons .button,
+.ui.small.buttons .or,
+.ui.small.button {
+  font-size: 0.92857143rem;
+}
+.ui.buttons .button,
+.ui.buttons .or,
+.ui.button {
+  font-size: 1rem;
+}
+.ui.large.buttons .button,
+.ui.large.buttons .or,
+.ui.large.button {
+  font-size: 1.14285714rem;
+}
+.ui.big.buttons .button,
+.ui.big.buttons .or,
+.ui.big.button {
+  font-size: 1.28571429rem;
+}
+.ui.huge.buttons .button,
+.ui.huge.buttons .or,
+.ui.huge.button {
+  font-size: 1.42857143rem;
+}
+.ui.massive.buttons .button,
+.ui.massive.buttons .or,
+.ui.massive.button {
+  font-size: 1.71428571rem;
+}
+
+/*--------------
+    Icon Only
+---------------*/
+
+.ui.icon.buttons .button,
+.ui.icon.button {
+  padding: 0.78571429em 0.78571429em 0.78571429em;
+}
+.ui.icon.buttons .button > .icon,
+.ui.icon.button > .icon {
+  opacity: 0.9;
+  margin: 0em !important;
+  vertical-align: top;
+}
+
+/*-------------------
+        Basic
+--------------------*/
+
+.ui.basic.buttons .button,
+.ui.basic.button {
+  background: transparent none !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  font-weight: normal;
+  border-radius: 0.28571429rem;
+  text-transform: none;
+  text-shadow: none !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.basic.buttons {
+  box-shadow: none;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+}
+.ui.basic.buttons .button {
+  border-radius: 0em;
+}
+.ui.basic.buttons .button:hover,
+.ui.basic.button:hover {
+  background: #FFFFFF !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.basic.buttons .button:focus,
+.ui.basic.button:focus {
+  background: #FFFFFF !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.basic.buttons .button:active,
+.ui.basic.button:active {
+  background: #F8F8F8 !important;
+  color: rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset;
+}
+.ui.basic.buttons .active.button,
+.ui.basic.active.button {
+  background: rgba(0, 0, 0, 0.05) !important;
+  box-shadow: '' !important;
+  color: rgba(0, 0, 0, 0.95);
+}
+.ui.basic.buttons .active.button:hover,
+.ui.basic.active.button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Vertical */
+.ui.basic.buttons .button:hover {
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.35) inset, 0px 0px 0px 0px rgba(34, 36, 38, 0.15) inset inset;
+}
+.ui.basic.buttons .button:active {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15) inset, 0px 1px 4px 0px rgba(34, 36, 38, 0.15) inset inset;
+}
+.ui.basic.buttons .active.button {
+  box-shadow: '' !important;
+}
+
+/* Standard Basic Inverted */
+.ui.basic.inverted.buttons .button,
+.ui.basic.inverted.button {
+  background-color: transparent !important;
+  color: #F9FAFB !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.5) inset !important;
+}
+.ui.basic.inverted.buttons .button:hover,
+.ui.basic.inverted.button:hover {
+  color: #FFFFFF !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+}
+.ui.basic.inverted.buttons .button:focus,
+.ui.basic.inverted.button:focus {
+  color: #FFFFFF !important;
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+}
+.ui.basic.inverted.buttons .button:active,
+.ui.basic.inverted.button:active {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.9) inset !important;
+}
+.ui.basic.inverted.buttons .active.button,
+.ui.basic.inverted.active.button {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  text-shadow: none;
+  box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.7) inset;
+}
+.ui.basic.inverted.buttons .active.button:hover,
+.ui.basic.inverted.active.button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0px 0px 0px 2px #ffffff inset !important;
+}
+
+
+/*--------------
+  Labeled Icon
+---------------*/
+
+.ui.labeled.icon.buttons .button,
+.ui.labeled.icon.button {
+  position: relative;
+  padding-left: 4.07142857em !important;
+  padding-right: 1.5em !important;
+}
+
+/* Left Labeled */
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
+  position: absolute;
+  height: 100%;
+  line-height: 1;
+  border-radius: 0px;
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  text-align: center;
+  margin: 0em;
+  width: 2.57142857em;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: '';
+  box-shadow: -1px 0px 0px 0px transparent inset;
+}
+
+/* Left Labeled */
+.ui.labeled.icon.buttons > .button > .icon,
+.ui.labeled.icon.button > .icon {
+  top: 0em;
+  left: 0em;
+}
+
+/* Right Labeled */
+.ui[class*="right labeled"].icon.button {
+  padding-right: 4.07142857em !important;
+  padding-left: 1.5em !important;
+}
+.ui[class*="right labeled"].icon.button > .icon {
+  left: auto;
+  right: 0em;
+  border-radius: 0px;
+  border-top-right-radius: inherit;
+  border-bottom-right-radius: inherit;
+  box-shadow: 1px 0px 0px 0px transparent inset;
+}
+.ui.labeled.icon.buttons > .button > .icon:before,
+.ui.labeled.icon.button > .icon:before,
+.ui.labeled.icon.buttons > .button > .icon:after,
+.ui.labeled.icon.button > .icon:after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.ui.labeled.icon.buttons .button > .icon {
+  border-radius: 0em;
+}
+.ui.labeled.icon.buttons .button:first-child > .icon {
+  border-top-left-radius: 0.28571429rem;
+  border-bottom-left-radius: 0.28571429rem;
+}
+.ui.labeled.icon.buttons .button:last-child > .icon {
+  border-top-right-radius: 0.28571429rem;
+  border-bottom-right-radius: 0.28571429rem;
+}
+.ui.vertical.labeled.icon.buttons .button:first-child > .icon {
+  border-radius: 0em;
+  border-top-left-radius: 0.28571429rem;
+}
+.ui.vertical.labeled.icon.buttons .button:last-child > .icon {
+  border-radius: 0em;
+  border-bottom-left-radius: 0.28571429rem;
+}
+
+/* Fluid Labeled */
+.ui.fluid[class*="left labeled"].icon.button,
+.ui.fluid[class*="right labeled"].icon.button {
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
+}
+
+/* Fluid Or */
+.ui.fluid.buttons .or {
+  width: 0em !important;
+}
+.ui.fluid.buttons .or:after {
+  display: none;
+}
+
+/*-------------------
+       Attached
+--------------------*/
+
+
+/* Singular */
+.ui.attached.button {
+  position: relative;
+  display: block;
+  margin: 0em;
+  border-radius: 0em;
+  box-shadow: 0px 0px 0px 1px rgba(34, 36, 38, 0.15) !important;
+}
+
+/* Top / Bottom */
+.ui.attached.top.button {
+  border-radius: 0.28571429rem 0.28571429rem 0em 0em;
+}
+.ui.attached.bottom.button {
+  border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+}
+
+/* Left / Right */
+.ui.left.attached.button {
+  display: inline-block;
+  border-left: none;
+  text-align: right;
+  padding-right: 0.75em;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
+}
+.ui.right.attached.button {
+  display: inline-block;
+  text-align: left;
+  padding-left: 0.75em;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
+}
+
+/* Left / Right */
+.ui[class*="left attached"].buttons {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-right: 0em;
+  margin-left: -1px;
+  border-radius: 0em 0.28571429rem 0.28571429rem 0em;
+}
+.ui[class*="left attached"].buttons .button:first-child {
+  margin-left: -1px;
+  border-radius: 0em 0.28571429rem 0em 0em;
+}
+.ui[class*="left attached"].buttons .button:last-child {
+  margin-left: -1px;
+  border-radius: 0em 0em 0.28571429rem 0em;
+}
+.ui[class*="right attached"].buttons {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-left: 0em;
+  margin-right: -1px;
+  border-radius: 0.28571429rem 0em 0em 0.28571429rem;
+}
+.ui[class*="right attached"].buttons .button:first-child {
+  margin-left: -1px;
+  border-radius: 0.28571429rem 0em 0em 0em;
+}
+.ui[class*="right attached"].buttons .button:last-child {
+  margin-left: -1px;
+  border-radius: 0em 0em 0em 0.28571429rem;
+}
+
+
+i.icon {
+  display: inline-block;
+  opacity: 1;
+  margin: 0em 0.25rem 0em 0em;
+  width: 1.18em;
+  height: 1em;
+  font-family: 'Icons';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  text-align: center;
+  speak: none;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+i.icon:before {
+  background: none !important;
+}
+
+i.icon.arrow.left:before {
+  content: "\f060";
+}
+i.icon.arrow.right:before {
+  content: "\f061";
+}
+i.icon.refresh:before {
+  content: "\f021";
+}

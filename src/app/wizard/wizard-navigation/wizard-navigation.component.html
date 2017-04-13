@@ -1,0 +1,27 @@
+  <footer class="footer" *ngIf="!_showMiniNavigation;else navigationMini">
+    <button class="ui labeled icon button" (click)="backStep()" [disabled]="!_isBackButtonEnabled">
+      <i class="left arrow icon"></i>
+      Back
+    </button>
+    <button class="ui labeled icon button" (click)="onRefreshWizard()">
+      <i class="refresh icon"></i>
+      Refresh
+    </button>
+    <button [ngClass]="{ 'red': !_canMoveNext }" class="ui right labeled icon button" (click)="nextStep()" [disabled]="!isNextButtonEnabled">
+      <i class="right arrow icon"></i>
+      Next
+    </button>
+  </footer>
+  <ng-template #navigationMini>
+    <footer class="footer">
+      <button class="ui  icon button" (click)="backStep()" [disabled]="!_isBackButtonEnabled">
+        <i class="left arrow icon"></i>
+      </button>
+        <button [ngClass]="{ 'red': !_canMoveNext }" class="ui icon button" (click)="onRefreshWizard()">
+        <i class="refresh icon"></i>
+      </button>
+        <button class="ui right icon button" (click)="nextStep()" [disabled]="!isNextButtonEnabled">
+        <i class="right arrow icon"></i>
+      </button>
+    </footer>
+  </ng-template>

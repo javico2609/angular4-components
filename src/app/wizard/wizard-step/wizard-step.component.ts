@@ -9,8 +9,11 @@ import {
 
 @Component({
   selector: 'wizard-step',
-  templateUrl: './wizard-step.component.html',
-  styleUrls: ['./wizard-step.component.css'],
+  template: `
+    <div [@isVisibleChanged]="active">
+      <ng-content></ng-content>
+    </div>
+  `,
   animations: [
     trigger('isVisibleChanged', [
       state('1', style({ opacity: 1, display: 'inline' })),

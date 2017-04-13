@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { WizardComponent } from './wizard.component';
 import { WizardStepComponent } from './wizard-step/wizard-step.component';
 import { WizardNavbarComponent } from './wizard-navbar/wizard-navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WizardNavigationComponent } from "./wizard-navigation/wizard-navigation.component";
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, BrowserAnimationsModule],
   declarations: [
     WizardComponent,
     WizardStepComponent,
-    WizardNavbarComponent
+    WizardNavbarComponent,
+    WizardNavigationComponent
   ],
   exports: [WizardComponent, WizardStepComponent]
 })

@@ -21,7 +21,7 @@ const FIRST_MOVE: number = 0;
   selector: 'wizard',
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WizardComponent implements OnInit {
   private _currentStepIndex: number = 0;
@@ -78,6 +78,10 @@ export class WizardComponent implements OnInit {
       this.move(MOVE_BACK);
       this.onBackStep.emit();
     }
+  }
+
+  refreshWizard() {
+
   }
 
   private move(direction: number = MOVE_NEXT) {

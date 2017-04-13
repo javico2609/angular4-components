@@ -1,36 +1,19 @@
 <div class="wrapper">
 
-  <wizard-navbar [steps]="_steps" [showNavbar]="_showNavbar"></wizard-navbar>
+  <wizard-navbar *ngIf="_showNavbar" [steps]="_steps"></wizard-navbar>
 
   <article class="main">
     <ng-content></ng-content>
   </article>
-  <footer class="footer" *ngIf="!_showMiniNavigation;else navigationMini">
-    <button class="ui labeled icon button" [disabled]="!hasPrevStep" (click)="backStep()">
-      <i class="left arrow icon"></i>
-      Back
-    </button>
-    <button class="ui labeled icon button">
-      <i class="refresh icon"></i>
-      Refresh
-    </button>
-    <button [ngClass]="{ 'red': !_currentStep._canMoveNext }" class="ui right labeled icon button" (click)="nextStep()" [disabled]="!hasNextStep">
-      <i class="right arrow icon"></i>
-      Next
-    </button>
-  </footer>
-  <ng-template #navigationMini>
-    <footer class="footer">
-      <button class="ui  icon button" [disabled]="!hasPrevStep" (click)="backStep()">
-        <i class="left arrow icon"></i>
-      </button>
-        <button class="ui  icon button">
-        <i class="refresh icon"></i>
-      </button>
-        <button [ngClass]="{ 'red': !_currentStep._canMoveNext }" class="ui right icon button" (click)="nextStep()" [disabled]="!hasNextStep">
-        <i class="right arrow icon"></i>
-      </button>
-    </footer>
-  </ng-template>
+
+  <wizard-navigation
+        [isBackButtonEnabled]="hasPrevStep"
+        [isNextButtonEnabled]="hasNextStep"
+        [showMiniNavigation]="_showMiniNavigation"
+        [canMoveNext]="_currentStep._canMoveNext" 
+        (onNext)="nextStep($event)"
+        (onBack)="backStep($event)"
+        (onRefresh)="refreshWizard($event)">
+  </wizard-navigation>
 
 </div>

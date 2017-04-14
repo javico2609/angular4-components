@@ -87,10 +87,11 @@ export class WizardComponent implements OnInit {
   }
 
   private move(direction: number = MOVE_NEXT) {
-    this._steps.forEach(step => step.active = false)
+    //
     this._currentStepIndex = this._currentStepIndex + direction;
 
     if (this._currentStepIndex < this._totalSteps) {
+      this._steps.forEach(step => step.active = false);
       this._currentStep = this._steps[this._currentStepIndex];
       this._currentStep.active = true;
     }

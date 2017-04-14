@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-sm-12">
       <ol class="list-inline text-center step-indicator">
-        <li *ngFor="let step of steps; let pos = index;" [ngClass]="{ 'active': step.active, 'incomplete': pos > _currentStepIndex, 'complete': pos < _currentStepIndex }">
-          <div *ngIf="step.active || pos > _currentStepIndex" class="step">{{ pos + 1 }}</div>
+        <li *ngFor="let step of steps; let pos = index;" [ngClass]="{ 'active': step.active && pos + 1 != _currentStepIndex, 'incomplete': pos > _currentStepIndex, 'complete': pos < _currentStepIndex }">
+          <div *ngIf="(step.active || pos > _currentStepIndex) && pos + 1 != _currentStepIndex" class="step">{{ pos + 1 }}</div>
           <div *ngIf="pos < _currentStepIndex" class="step" class="step"><span class="checkmark"></span></div>
           <div class="caption hidden-xss">{{ step.title }}</div>
         </li>

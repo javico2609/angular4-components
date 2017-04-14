@@ -25,8 +25,6 @@ import {
 export class WizardStepComponent implements OnInit {
   active: boolean = false;
   private _title: string;
-  private _description: string;
-  private _icon: string;
   _canMoveNext: boolean = true;
   _canMoveBack: boolean = true;
 
@@ -55,22 +53,6 @@ export class WizardStepComponent implements OnInit {
   }
   get title() {
     return this._title || '';
-  }
-
-  @Input()
-  set description(description: string) {
-    this._description = description;
-  }
-  get description() {
-    return this._description || '';
-  }
-
-  @Input()
-  set icon(icon: string) {
-    this._icon = icon;
-  }
-  get icon() {
-    return this._icon || '';
   }
 
   constructor() { }

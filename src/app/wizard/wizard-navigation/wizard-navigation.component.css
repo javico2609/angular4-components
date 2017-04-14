@@ -423,7 +423,7 @@
   display: block;
   position: absolute;
   width: 100%;
-  top: 50%;
+  top: 45%;
   text-align: center;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);

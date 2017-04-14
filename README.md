@@ -17,15 +17,19 @@ Navigate to `http://localhost:4200/`. The app will automatically reload if you c
 
 * Wizard
 
-Outputs
+**Outputs**
 
-```Wizard ( onNextStep, onBackStep, onRefresh,onComplete )```
-```Wizard Step ( onNext, onBack )```
+```
+Wizard ( onNextStep, onBackStep, onRefresh,onComplete )
+Wizard Step ( onNext, onBack )
+```
 
-Inputs
+**Inputs**
 
-```Wizard [ showNavbar, showMiniNavigation ]```
-```Wizard Step [ title, canMoveNext, canMoveBack ]```
+```
+Wizard [ showNavbar, showMiniNavigation ]
+Wizard Step [ title, canMoveNext, canMoveBack ]
+```
 
 ```
 
@@ -51,7 +55,7 @@ Inputs
 
 ## Authors
 
-* **Javier González Rodríguez** - *Initial work* - [javico2609](https://github.com/javico2609)
+* **Javier González Rodríguez** - [javico2609](https://github.com/javico2609)
 
 ## License
 

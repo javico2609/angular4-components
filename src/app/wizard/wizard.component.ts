@@ -51,6 +51,8 @@ export class WizardComponent implements OnInit {
 
   @Output() onNextStep: EventEmitter<any> = new EventEmitter();
   @Output() onBackStep: EventEmitter<any> = new EventEmitter();
+  @Output() onComplete: EventEmitter<any> = new EventEmitter();
+  @Output() onRefresh: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -81,18 +83,25 @@ export class WizardComponent implements OnInit {
   }
 
   refreshWizard() {
-
+    this.onRefresh.emit();
   }
 
   private move(direction: number = MOVE_NEXT) {
-    this._steps[this._currentStepIndex].active = false;
+    this._steps.forEach(step => step.active = false)
     this._currentStepIndex = this._currentStepIndex + direction;
-    this._currentStep = this._steps[this._currentStepIndex];
-    this._currentStep.active = true;
+
+    if (this._currentStepIndex < this._totalSteps) {
+      this._currentStep = this._steps[this._currentStepIndex];
+      this._currentStep.active = true;
+    }
+
+    if (this._currentStepIndex === this._totalSteps) {
+      this.onComplete.emit();
+    }
   }
 
   private get hasNextStep(): boolean {
-    return this._currentStepIndex < this._totalSteps - 1;
+    return this._currentStepIndex < this._totalSteps;
   }
 
   private get hasPrevStep(): boolean {

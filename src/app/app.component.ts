@@ -29,9 +29,13 @@ export class AppComponent {
     console.log('onBackExecute !!!');
   }
 
+  onComplete() {
+    console.log('onComplete !!!');
+  }
+
   canMoveNext() {
     setTimeout(() => {
-      this.canMoveNextCondition = false;
+      //this.canMoveNextCondition = false;
     }, 3000)
   }
 }

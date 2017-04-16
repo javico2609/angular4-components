@@ -1,3 +1,22 @@
+ol {
+ margin: 5px;
+}
+
+.container {
+  height: 89px;
+}
+
+
+@media (max-width: 400px) {
+  .hidden-xss {
+    display: none !important;
+  }
+
+  .container {
+    height: 50px;
+  }
+}
+
 .checkmark {
   display: inline-block;
 }
@@ -714,11 +733,6 @@ caption {
   text-align: left;
 }
 
-@media (max-width: 400px) {
-  .hidden-xss {
-    display: none !important;
-  }
-}
 
 @media (max-width: 767px) {
   .hidden-xs {

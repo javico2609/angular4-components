@@ -1,29 +1,17 @@
 
 .wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;  
-  
-  -webkit-flex-flow: row wrap;
-  flex-flow: row wrap;
-  
+  display: inline-block;
+  height: 100%;
+  width: 100%;
   font-weight: bold;
   text-align: center;
 }
 
-.wrapper > * {
-  flex: 1 100%;
-}
-
-@media all and (min-width: 100%) {
-  .main    { flex: 3 0px; }
-  .main    { order: 1; }
-  .footer  { order: 2; }
-}
-
 .main, .footer {
-  padding: 10px;
+  padding: 5px;
+}
+
+.main {
+  height: calc(100% - 170px);
 }
 

@@ -8,8 +8,8 @@ import { WizardStepComponent } from "../wizard-step/wizard-step.component";
 })
 export class WizardNavbarComponent implements OnInit {
 
-  private _steps: WizardStepComponent[];
-  private _currentStepIndex: number = 0;
+  public _steps: WizardStepComponent[];
+  public _currentStepIndex: number = 0;
 
   @Input()
   set steps(steps: WizardStepComponent[]) {

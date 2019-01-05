@@ -1,4 +1,5 @@
-<wizard (onNextStep)="onNextStep($event)" (onBackStep)="onBackStep($event)" (onComplete)="onComplete($event)" [showMiniNavigation]="true">
+<wizard (onNextStep)="onNextStep($event)" (onBackStep)="onBackStep($event)" (onComplete)="onComplete($event)"
+    [showMiniNavigation]="true">
     <wizard-step title="Initial" description="Enter transfer information" icon="wpforms">
         <p>Enter transfer information</p>
     </wizard-step>
@@ -12,3 +13,23 @@
         <p>Execute transfer</p>
     </wizard-step>
 </wizard>
+
+<div class="tab-section">
+    <lazy-tabs>
+        <lazy-tab header="Edit Agents" [bodyTemplate]="editAgents">
+            <ng-template #editAgents>
+                <p>Edit Agents</p>
+            </ng-template>
+        </lazy-tab>
+        <lazy-tab header="Edit from file" [bodyTemplate]="fromFile">
+            <ng-template #fromFile>
+                <p>Edit from file</p>
+            </ng-template>
+        </lazy-tab>
+        <lazy-tab header="Massive Add" [bodyTemplate]="addAgents">
+            <ng-template #addAgents>
+                <p>Massive Add</p>
+            </ng-template>
+        </lazy-tab>
+    </lazy-tabs>
+</div>

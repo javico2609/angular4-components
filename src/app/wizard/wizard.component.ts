@@ -1,15 +1,7 @@
 import {
   Component, OnInit, ChangeDetectionStrategy,
-  ContentChildren, QueryList, Input, EventEmitter, Output
+  ContentChildren, QueryList, Input, EventEmitter, Output, AfterContentInit
 } from '@angular/core';
-
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 
 import { WizardStepComponent } from "./wizard-step/wizard-step.component";
 
@@ -23,13 +15,13 @@ const FIRST_MOVE: number = 0;
   styleUrls: ['./wizard.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WizardComponent implements OnInit {
-  private _currentStepIndex: number = 0;
-  private _currentStep: WizardStepComponent;
-  private _showNavbar = true;
-  private _showMiniNavigation = false;
-  private _steps: WizardStepComponent[];
-  private _totalSteps: number = 0;
+export class WizardComponent implements OnInit, AfterContentInit {
+  public _currentStepIndex: number = 0;
+  public _currentStep: WizardStepComponent;
+  public _showNavbar = true;
+  public _showMiniNavigation = false;
+  public _steps: WizardStepComponent[];
+  public _totalSteps: number = 0;
 
   @ContentChildren(WizardStepComponent) steps: QueryList<WizardStepComponent>;
 

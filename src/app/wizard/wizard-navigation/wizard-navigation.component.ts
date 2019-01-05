@@ -6,10 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./wizard-navigation.component.css']
 })
 export class WizardNavigationComponent implements OnInit {
-  private _showMiniNavigation: boolean = false;
-  private _isBackButtonEnabled: boolean = true;
-  private _isNextButtonEnabled: boolean = true;
-  private _canMoveNext: boolean = false;
+  public _showMiniNavigation: boolean = false;
+  public _isBackButtonEnabled: boolean = true;
+  public _isNextButtonEnabled: boolean = true;
+  public _canMoveNext: boolean = false;
 
   @Output() onNext: EventEmitter<any> = new EventEmitter();
   @Output() onBack: EventEmitter<any> = new EventEmitter();

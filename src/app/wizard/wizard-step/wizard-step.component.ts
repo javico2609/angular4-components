@@ -24,9 +24,10 @@ import {
 })
 export class WizardStepComponent implements OnInit {
   active: boolean = false;
-  private _title: string;
   _canMoveNext: boolean = true;
   _canMoveBack: boolean = true;
+
+  private _title: string;
 
   @Output() onNext: EventEmitter<any> = new EventEmitter();
   @Output() onBack: EventEmitter<any> = new EventEmitter();

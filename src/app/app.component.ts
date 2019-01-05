@@ -3,15 +3,15 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'app works!';
+  canMoveNextCondition: boolean = true;
 
   constructor() {
     this.canMoveNext();
   }
-  canMoveNextCondition: boolean = true;
 
   onNextSecondAuth() {
     console.log('onNextSecondAuth !!!');
@@ -35,7 +35,7 @@ export class AppComponent {
 
   canMoveNext() {
     setTimeout(() => {
-      //this.canMoveNextCondition = false;
+      // this.canMoveNextCondition = false;
     }, 3000)
   }
 }

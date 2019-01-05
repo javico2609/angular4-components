@@ -50,6 +50,41 @@ Wizard Step [ title, canMoveNext, canMoveBack ]
 
 ```
 
+* Lazy Tabs
+
+**Outputs**
+
+```
+LazyTabs ( onChange, onClose )
+```
+
+**Inputs**
+
+```
+LazyTabs [ style, controlClose ]
+LazyTab [ header, tooltipTitle, selected, disabled, closable, bodyTemplate ]
+```
+
+```
+<lazy-tabs>
+    <lazy-tab header="Edit Agents" [bodyTemplate]="editAgents">
+        <ng-template #editAgents>
+            <p>Edit Agents</p>
+        </ng-template>
+    </lazy-tab>
+    <lazy-tab header="Edit from file" [bodyTemplate]="fromFile">
+        <ng-template #fromFile>
+            <p>Edit from file</p>
+        </ng-template>
+    </lazy-tab>
+    <lazy-tab header="Massive Add" [bodyTemplate]="addAgents">
+        <ng-template #addAgents>
+            <p>Massive Add</p>
+        </ng-template>
+    </lazy-tab>
+</lazy-tabs>
+```
+
 ## Version
 ```0.1```
 

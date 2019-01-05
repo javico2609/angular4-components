@@ -1,0 +1,94 @@
+$gray-base:  #000;
+:host {
+
+  .nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    &::after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+  
+    > li {
+      position: relative;
+      display: block;
+  
+      > a {
+        position: relative;
+        display: block;
+        padding: 10px 15px;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+          background-color: lighten($gray-base, 93.5%);
+        }
+      }
+  
+      // Disabled state sets text to gray and nukes hover/tab effects
+      &.disabled > a {
+        color: lighten($gray-base, 46.7%);
+  
+        &:hover,
+        &:focus {
+          color: lighten($gray-base, 93.5%);
+          text-decoration: none;
+          background-color: transparent;
+          cursor: not-allowed;
+        }
+      }
+    }
+  
+    // Open dropdowns
+    .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: lighten($gray-base, 93.5%);
+        border-color: #644D71;
+      }
+    }
+    
+    // Prevent IE8 from misplacing imgs
+    //
+    // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+    > li > a > img {
+      max-width: none;
+    }
+  }
+
+  .nav-tabs {
+    border-bottom: 1px solid  #ddd;
+    > li {
+      float: left;
+      // Make the list-items overlay the bottom border
+      margin-bottom: -1px;
+  
+      // Actual tabs (as links)
+      > a {
+        margin-right: 2px;
+        line-height: 1.428571429;
+        border: 1px solid transparent;
+        border-radius: 4px 4px 0 0;
+        &:hover {
+          border-color: lighten($gray-base, 93.5%) lighten($gray-base, 93.5%)  #ddd;
+        }
+      }
+  
+      // Active state, and its :hover to override normal :hover
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          color: lighten($gray-base, 33.5%);
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-bottom-color: transparent;
+          cursor: default;
+        }
+      }
+    }    
+  }
+  
+}
